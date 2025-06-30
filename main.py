@@ -4,7 +4,10 @@ from typing import List, Optional
 from pydantic import BaseModel
 
 app = FastAPI()
-
+@app.get("/")
+def read_root():
+    return {"message": "KMB ETA API running. Use /eta/{stop_id}/{route}/{service_type}"}
+    
 BASE_URL = "https://data.etabus.gov.hk/v1/transport/kmb"
 
 # Data models for response serialization
